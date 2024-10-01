@@ -2,7 +2,6 @@ import { useSelector, useDispatch } from "react-redux"
 
 const AnecdoteList = () => {
   const anecdotes = useSelector((state) => state.anecdotes)
-  // console.log("anecdotes", anecdotes)
   const filter = useSelector((state) => state.filter)
   const dispatch = useDispatch()
 
