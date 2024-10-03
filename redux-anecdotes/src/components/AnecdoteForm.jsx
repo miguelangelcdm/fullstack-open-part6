@@ -1,5 +1,6 @@
 import { useDispatch } from 'react-redux'
 import { createAnecdote } from '../reducers/anecdoteReducer'
+import { setNotification } from '../reducers/notificationReducer'
 
 const AnecdoteForm = () => {
   const dispatch = useDispatch()
@@ -11,11 +12,8 @@ const AnecdoteForm = () => {
     console.log('new anecdote content:', content)
     
     dispatch(createAnecdote(content))
-    
-    dispatch({ type: 'notification/setNotification', payload: { message: "you created a new anecdote" } })
-    setTimeout(() => {
-      dispatch({ type: 'notification/clearNotification' })
-    }, 5000)
+    dispatch(setNotification("you created a new anecdote", 5000))
+
   }
   
   return (
